@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/home">Trang chủ</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="https://www.facebook.com/vuminh.hien.798?locale=vi_VN">Liên kết tác giả</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+           Menu
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="/course/create">Đăng khóa học</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/manager">Quản lý khóa học</a>
+          <a class="dropdown-item" href="#">Quản lý bài viết</a>
+          <div class="dropdown-divider"></div>
+        </div>
+      </li>
+      
+    </ul>
+      {{#if user}}
+      <h2>Xin chào {{user.name}}. <a href="/auth/logout">Đăng xuất</a></h2> 
+      {{else}}
+       <a href="/auth/login"><h1>Đăng nhập</h1></a>
+      {{/if}}
+  </div>
+</nav>

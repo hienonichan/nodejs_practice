@@ -1,0 +1,12 @@
+const express=require('express')
+const router=express.Router()
+const courseController=require('../controller/CourseController')
+router.put('/:id/restore',courseController.restore)
+router.delete('/:id/deleteForever',courseController.deleteForever)
+router.delete('/:id/delete',courseController.softDelete)
+router.get('/:id/edit',courseController.edit)
+router.put('/:id/edit',courseController.editStored)
+router.get('/detail/:id',courseController.showDetail)
+router.get('/create',courseController.createShow)
+router.post('/create',courseController.createStore)
+module.exports=router

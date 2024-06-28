@@ -1,0 +1,19 @@
+@charset "UTF-8";
+.card-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: 16px;
+  /* Khoảng cách giữa các thẻ */ }
+
+.card {
+  box-sizing: border-box; }
+
+.card-img-top {
+  width: 100%;
+  /* Để hình ảnh chiếm toàn bộ chiều rộng của thẻ */
+  height: auto;
+  /* Giữ tỷ lệ khung hình của hình ảnh */ }
+
+.card-body {
+  padding: 16px;
+  /* Khoảng cách bên trong thẻ */ }
