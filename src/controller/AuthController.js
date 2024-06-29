@@ -24,7 +24,7 @@ class AuthController{
             res.status(401).redirect('/auth/login')
             return
            }
-           const token=jwt.sign(req.body,process.env.secretKey)
+           const token=jwt.sign({username:req.body.username},process.env.secretKey)
            res.cookie('token',token,{httpOnly:true})
            res.redirect('/home')
         }

@@ -9,10 +9,10 @@ const User=require('../models/userModel')
     }
     try {
         const payload=jwt.verify(token,process.env.secretKey)
-        let user=await User.findOne({username:payload.username,password:payload.password})
+        let user=await User.findOne({username:payload.username})
         user=user.toObject()
         // res.locals lưu data toàn cục để render trong handlebars
-        res.locals.user=user
+        res.locals.user={name:user.name}
         // các middle có thể chỉnh sửa req tùy ý(có thể dùng lưu data) từ middleware này 
         //sang midd khác đến hàm handler cuối cùng phản hồi res
         req.user={_id:user._id,courses:user.courses}

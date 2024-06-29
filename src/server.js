@@ -1,6 +1,5 @@
 const express=require('express')
 const app=express()
-const PORT=3000
 const hbs=require('express-handlebars')
 const path=require('path')
 const route=require('./route/index')
@@ -14,6 +13,7 @@ const jwt=require('jsonwebtoken')
 
 //config dotenv
 dotenv.config()
+const PORT=process.env.port||3000
 
 //config method-override
 app.use(methodOverride('_method'))
