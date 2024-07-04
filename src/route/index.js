@@ -11,11 +11,12 @@ const authRouter=require('./auth')
 const checkToken=require('../middleware/checkToken')
 const errHandler=require('../middleware/errHandler')
 const checkAdmin=require('../middleware/checkAdmin')
-
+const getUser=require('../middleware/getUser')
 function route(app){
     app.use(errHandler)
     app.use('/auth',authRouter)
     app.use(checkToken)
+    app.use(getUser)
     app.use('/course',checkAdmin,courseRouter)
     app.use('/home',homeRouter)
     app.use('/manager',checkAdmin,managerRouter)

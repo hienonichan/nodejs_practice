@@ -6,7 +6,7 @@ const bcrypt=require('bcrypt')
 
   //function create Token
 function generateAccessToken(user){
-    return jwt.sign({username:user.username},process.env.secretKey,{expiresIn:'5s'})
+    return jwt.sign({username:user.username},process.env.secretKey,{expiresIn:'3s'})
 }
  function generateRefreshToken(user){
     return jwt.sign({username:user.username},process.env.refreshKey,{expiresIn:'2d'})
@@ -32,7 +32,6 @@ class AuthController{
              res.status(401).redirect('/auth/login')
              return   
            }   
-
            // compare password from submit and hashed password from DB
            const validPassword=await bcrypt.compare(req.body.password,user.password)
            if(!validPassword){
@@ -82,11 +81,10 @@ class AuthController{
 
     //GET /auth/logout
     logoutGET(req,res,next){
-        res.cookie('token','',{maxAge:0})
+        res.cookie('accessToken','',{maxAge:0})
+        res.cookie('refreshToken','',{maxAge:0})
         res.redirect('/auth/login')
     }
-
-   
    //route refresh token
     //POST /auth/token
     tokenPOST(req,res,next){
@@ -104,13 +102,12 @@ class AuthController{
                 const newAccessToken=generateAccessToken({username:payload.username})
                 const newRefreshToken=generateRefreshToken({username:payload.username})
                 
-                refreshTokens = refreshTokens.filter(token => token !== refreshToken);
-                refreshTokens.push(newRefreshToken);
+                refreshTokens = refreshTokens.filter(token => token !== refreshToken)
+                refreshTokens.push(newRefreshToken)
                 res.json({accessToken:newAccessToken,refreshToken:newRefreshToken})
         } catch (error) {
             res.status(401).send('refreshToken is invalid')
         }
-        
     }
 }
 module.exports=new AuthController()

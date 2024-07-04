@@ -8,7 +8,7 @@ class HomeController{
                 //const course=await Course.find({deleted:false})
                 const course=user.courses
                 const courseObject=course.map(course=>course.toObject())
-                res.render('home',{courseObject})
+                res.status(201).render('home',{courseObject})
         } catch (error) {
             next(error)
         }

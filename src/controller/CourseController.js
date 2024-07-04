@@ -25,7 +25,6 @@ class CourseController{
     }
    }   
 
-
    //GET /course/detail/:id
    async showDetail(req,res,next){
      try {
@@ -48,8 +47,6 @@ class CourseController{
           next(error)
        }
    }
-
-
    //PUT /course/:id/edit
    async editStored(req,res,next){
        try {
@@ -59,8 +56,6 @@ class CourseController{
          next(error)
        }
    }
-
-     
    //DELETE /course/:id/delete
    async softDelete(req,res,next){
       try {
@@ -70,9 +65,6 @@ class CourseController{
          next(error)
       }
    }
-
-
-
    //PUT /course/:id/restore
    async restore(req,res,next){
       try {
