@@ -104,9 +104,9 @@ class AuthController{
                 
                 refreshTokens = refreshTokens.filter(token => token !== refreshToken)
                 refreshTokens.push(newRefreshToken)
-                res.json({accessToken:newAccessToken,refreshToken:newRefreshToken})
+                res.status(200).json({accessToken:newAccessToken,refreshToken:newRefreshToken})
         } catch (error) {
-            res.status(401).send('refreshToken is invalid')
+           return res.status(401).send('refreshToken is invalid')
         }
     }
 }

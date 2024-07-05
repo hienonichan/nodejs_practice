@@ -13,7 +13,7 @@ const User=require('../models/userModel')
                if(err.name==='TokenExpiredError'){
                 const refreshToken=req.cookies.refreshToken
                 if(!refreshToken){
-                    console.log('refresh token is out of time')
+                    console.log('refresh token khong ton tai')
                     return res.redirect('/auth/login')
                 }
                 try {
@@ -31,7 +31,7 @@ const User=require('../models/userModel')
                             req.cookies.refreshToken=result.refreshToken
                             next()
                         } catch (error) {
-                            console.log('error in fetching at url /token')
+                            console.log('accessToken is invalid but cant refresh')
                             return res.redirect('/auth/login')
                         }
                }
