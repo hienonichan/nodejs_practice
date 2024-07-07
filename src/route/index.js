@@ -4,7 +4,7 @@ const homeRouter=require('./home')
 const courseRouter=require('./course')
 const managerRouter=require('./manager')
 const authRouter=require('./auth')
-
+const castsRouter=require('./shopping-casts')
 
 //middleware
 
@@ -18,6 +18,7 @@ function route(app){
     app.use(checkToken)
     app.use(getUser)
     app.use('/course',checkAdmin,courseRouter)
+    app.use('/shopping-casts',castsRouter)
     app.use('/home',homeRouter)
     app.use('/manager',checkAdmin,managerRouter)
 }

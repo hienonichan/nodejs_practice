@@ -1,0 +1,29 @@
+
+<div>
+   <h1>Giỏ hàng</h1>
+</div>
+
+<div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">STT</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each course}}
+    <tr>
+      <th scope="row">{{@index}}</th>
+      <td>{{this.name}}</td>
+      <td>{{this.description}}</td>
+    </tr>
+     {{else}}
+        <tr>
+            <td>Bạn chưa có khóa học nào trong giỏ hàng. <a href="/home">Quay lại</a></td>
+        </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>

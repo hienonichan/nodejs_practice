@@ -6,10 +6,11 @@
             <a href="/course/detail/{{this._id}}"><h5 class="card-title">{{this.name}}</h5></a>
             <p class="card-text">{{this.description}}</p>
             <a href="#" class="btn btn-primary">Mua ngay</a>
-            <a href="#" class="btn btn-primary">Thêm vào giỏ</a>
+            <form action="/shopping-casts/{{this._id}}" method="POST">
+                  <button class="btn btn-primary" type="submit">Thêm vào giỏ</button>
+            </form>
         </div>
     </div>
-
         {{else}}
             <tr>
                 <td>Bạn chưa đăng khóa học nào. Ấn vào<a href="/course/create">đây</a>để tạo khóa học</td>
