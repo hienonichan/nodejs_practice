@@ -2,24 +2,29 @@
 //express.Router()
 const homeRouter=require('./home')
 const courseRouter=require('./course')
-const managerRouter=require('./manager')
 const authRouter=require('./auth')
 const castsRouter=require('./shopping-casts')
+const adminRouter=require('./admin')
 
 //middleware
 
 const checkToken=require('../middleware/checkToken')
 const errHandler=require('../middleware/errHandler')
-const checkAdmin=require('../middleware/checkAdmin')
 const getUser=require('../middleware/getUser')
+const checkAdmin=require('../middleware/checkAdmin')
+
 function route(app){
     app.use(errHandler)
     app.use('/auth',authRouter)
     app.use(checkToken)
     app.use(getUser)
-    app.use('/course',checkAdmin,courseRouter)
+    app.use('/course',courseRouter)
     app.use('/shopping-casts',castsRouter)
     app.use('/home',homeRouter)
-    app.use('/manager',checkAdmin,managerRouter)
+    app.use('/admin',checkAdmin,adminRouter)
+    //config for not route fixing
+    app.use('/',(req,res,next)=>{
+        res.status(404).send('<h1>PAGE NOT FOUND</h1>')
+    })
 }
 module.exports=route

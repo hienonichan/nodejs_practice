@@ -1,6 +1,7 @@
 
 const jwt=require('jsonwebtoken')
 const User=require('../models/userModel')
+
  async function checkToken(req,res,next){
     const accessToken=req.cookies.accessToken
     if(!accessToken){

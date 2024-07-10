@@ -1,6 +1,7 @@
 const shoppingCastsController=require('../controller/ShoppingCastsController')
 const express=require('express')
 const router=express.Router()
+router.put('/:id',shoppingCastsController.pop)
 router.post('/:id',shoppingCastsController.push)
 router.get('/',shoppingCastsController.show)
 module.exports=router

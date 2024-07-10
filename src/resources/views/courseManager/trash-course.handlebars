@@ -1,7 +1,7 @@
 
 <div>
    <h1>Thùng rác</h1>
-   <a href="/manager">Quay lại</a>
+   <a href="/admin/manager">Quay lại</a>
 </div>
 
 <div>
@@ -24,7 +24,7 @@
       <td>{{this.description}}</td>
       <td>{{this.videoId}}</td>
        <td>
-          <form action="/course/{{this._id}}/restore?_method=PUT" method="POST">
+          <form action="/admin/course/{{this._id}}/restore?_method=PUT" method="POST">
              <button type="submit" class="btn btn-primary">Khôi phục</button>
           </form>
       </td>
@@ -83,7 +83,7 @@
              })
              // khi nút đồng ý clicked thì tạo submit với method delete 
           btnDeleteCourse.onclick=function (){
-               deleteForm.action='/course/'+courseId+'/deleteForever?_method=DELETE'
+               deleteForm.action='/admin/course/'+courseId+'/deleteForever?_method=DELETE'
                deleteForm.submit()
           }
     })

@@ -25,6 +25,21 @@ class ShoppingCastsController{
         next(error)
       }
    }
+   //PUT /shopping-casts/:id
+   async pop(req,res,next){
+      try {
+         let array=req.user.shoppingCasts
+         for(let index=0;index<array.length;index++){
+            if(array[index].toString()===req.params.id){
+              array.splice(index,1)
+              break
+            }
+         }
+         await User.findByIdAndUpdate(req.user._id,{shoppingCasts:array})
+         res.redirect('/shopping-casts')
+      } catch (error) {
+        next(error)
+      }
+   }
 }
-
 module.exports=new ShoppingCastsController()

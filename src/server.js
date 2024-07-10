@@ -35,7 +35,6 @@ app.set('views',path.join(__dirname,'resources','views'))
 
 //config database
 database()
-
 // config route
 route(app)
 app.listen(PORT,()=>{

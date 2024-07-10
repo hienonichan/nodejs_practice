@@ -22,7 +22,7 @@ class AuthController{
         } catch (error) {
             next(error)
         }
-    }
+    }  
     //POST /auth/login
     async loginPOST(req,res,next){
         try {
@@ -97,7 +97,6 @@ class AuthController{
                     return res.status(403).send('can not find refreshToken in database')
                 }
                 const payload=jwt.verify(refreshToken,process.env.refreshKey)
-
                 //Xóa token cũ và tạo accessToken ,refreshToken mới
                 const newAccessToken=generateAccessToken({username:payload.username})
                 const newRefreshToken=generateRefreshToken({username:payload.username})

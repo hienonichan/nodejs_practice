@@ -1,7 +1,7 @@
 
 <div>
    <h1>Quản lí khóa học của tôi</h1>
-   <a href="/manager/trash">Thùng rác ({{number}})</a>
+   <a href="/admin/manager/trash">Thùng rác ({{number}})</a>
 </div>
 
 <div>
@@ -23,16 +23,16 @@
       <td>{{this.name}}</td>
       <td>{{this.description}}</td>
       <td>{{this.videoId}}</td>
-      <td><a href="/course/{{this._id}}/edit" class="btn btn-primary">Sửa</a></td>
+      <td><a href="/admin/course/{{this._id}}/edit" class="btn btn-primary">Sửa</a></td>
       <td>
-          <form action="/course/{{this._id}}/delete?_method=DELETE" method="POST">
+          <form action="/admin/course/{{this._id}}/delete?_method=PUT" method="POST">
              <button type="submit" class="btn btn-primary">Xóa</button>
           </form>
       </td>
     </tr>
      {{else}}
         <tr>
-            <td>Bạn chưa đăng khóa học nào. Ấn vào <a href="/course/create">đây</a> để tạo khóa học</td>
+            <td>Bạn chưa đăng khóa học nào. Ấn vào <a href="/admin/course/create">đây</a> để tạo khóa học</td>
         </tr>
     {{/each}}
   </tbody>

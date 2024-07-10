@@ -10,6 +10,8 @@
       <th scope="col">STT</th>
       <th scope="col">Name</th>
       <th scope="col">Description</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +20,10 @@
       <th scope="row">{{@index}}</th>
       <td>{{this.name}}</td>
       <td>{{this.description}}</td>
+      <td><button class="btn btn-primary">Thanh toán</button></td>
+      <td><form action="/shopping-casts/{{this._id}}?_method=PUT" method="POST">
+           <button type="submit" class="btn btn-primary">Xóa</button>
+      </form></td>
     </tr>
      {{else}}
         <tr>
