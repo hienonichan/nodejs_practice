@@ -35,7 +35,7 @@ app.set('views',path.join(__dirname,'resources','views'))
 
 //config database
 database()
-// config route
+// setup route
 route(app)
 app.listen(PORT,()=>{
     console.log('server is running on http://localhost:'+PORT+'/home')
