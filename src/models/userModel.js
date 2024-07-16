@@ -8,7 +8,13 @@ const User=new Schema({
     password:{type:String,required:true},
     courses:[{type: mongoose.Schema.Types.ObjectId,ref: 'Course'}],
     // courses là mảng chứa các khóa học user sở hữu
-    shoppingCasts:[{type:mongoose.Schema.Types.ObjectId,ref:'Course'}],
+    shoppingCarts:[{
+        product:{
+            type:mongoose.Schema.Types.ObjectId,ref:'Course'
+        },
+        quantity:{type:Number}
+    }
+    ],
     // shoppingCasts là mảng chứa các khóa học user thêm vào giỏ hàng
     admin:{type:Boolean,default:false},
     // element admin để làm chức năng phân quyền

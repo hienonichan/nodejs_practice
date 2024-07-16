@@ -15,6 +15,11 @@
             <label for="videoId">Đường dẫn video</label>
             <input type="text" id="videoId" name="videoId" value="{{course.videoId}}" class="form-control" placeholder="Đường dẫn video khóa học">
         </div>
+
+         <div class="form-group">
+            <label for="price">Giá tiền khóa học (Đơn vị:VNĐ)</label>
+            <input type="number" id="price" name="price" value={{course.price}} class="form-control" placeholder="Giá tiền khóa học">
+        </div>
         <button type="submit" class="btn btn-primary">Update thay đổi</button>
     </form>
 </div>

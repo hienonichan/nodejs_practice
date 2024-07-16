@@ -10,18 +10,20 @@
       <th scope="col">STT</th>
       <th scope="col">Name</th>
       <th scope="col">Description</th>
-      <th scope="col"></th>
+      <th scope="col">Số lượng</th>
+       <th scope="col">Giá tiền mỗi sản phẩm</th>
       <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
-    {{#each course}}
+    {{#each cart}}
     <tr>
       <th scope="row">{{@index}}</th>
-      <td>{{this.name}}</td>
-      <td>{{this.description}}</td>
-      <td><button class="btn btn-primary">Thanh toán</button></td>
-      <td><form action="/shopping-casts/{{this._id}}?_method=PUT" method="POST">
+      <td>{{this.product.name}}</td>
+      <td>{{this.product.description}}</td>
+      <td>{{this.quantity}}</td>
+      <td>{{this.product.price}} VNĐ</td>
+      <td><form action="/shopping-carts/{{this.product._id}}?_method=PUT" method="POST">
            <button type="submit" class="btn btn-primary">Xóa</button>
       </form></td>
     </tr>
@@ -32,4 +34,10 @@
     {{/each}}
   </tbody>
 </table>
+</div>
+
+<div>
+    <form action="/create-order" method="POST">
+         <button type="submit" class="btn btn-primary">Đặt hàng</button>
+    </form>
 </div>

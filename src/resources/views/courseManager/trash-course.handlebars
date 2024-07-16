@@ -12,7 +12,7 @@
       <th scope="col">Name</th>
       <th scope="col">Description</th>
       <th scope="col">videoID</th>
-      <th scope="col"></th>
+      <th scope="col">Giá tiền</th>
       <th scope="col"></th>
     </tr>
   </thead>
@@ -23,6 +23,7 @@
       <td>{{this.name}}</td>
       <td>{{this.description}}</td>
       <td>{{this.videoId}}</td>
+      <td>{{this.price}} VNĐ</td>
        <td>
           <form action="/admin/course/{{this._id}}/restore?_method=PUT" method="POST">
              <button type="submit" class="btn btn-primary">Khôi phục</button>

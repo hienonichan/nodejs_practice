@@ -7,6 +7,7 @@ const Course=new Schema({
     description:{type:String},
     videoId:{type:String},
     image:{type:String},
+    price:{type:Number},
     deleted: {type:Boolean,default:false},
 })
 module.exports=mongoose.model('Course',Course)
