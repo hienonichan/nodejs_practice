@@ -15,6 +15,7 @@ const User=new Schema({
         quantity:{type:Number}
     }
     ],
+    orders:[{type:mongoose.Schema.Types.ObjectId,ref:'Order'}],
     // shoppingCasts là mảng chứa các khóa học user thêm vào giỏ hàng
     admin:{type:Boolean,default:false},
     // element admin để làm chức năng phân quyền

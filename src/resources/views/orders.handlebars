@@ -1,0 +1,40 @@
+
+<div>
+   <h1>Các đơn hàng đã đặt</h1>
+</div>
+{{#each ordersData}}
+<h3>Đơn hàng :{{this.order._id}}</h3>
+<div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">STT</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Số lượng</th>
+       <th scope="col">Giá tiền mỗi sản phẩm(VNĐ)</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each this.order.shoppingCarts}}
+    <tr>
+      <th scope="row">{{@index}}</th>
+        <td>{{this.this.product.name}}</td>
+        <td>{{this.product.description}}</td>
+        <td>{{this.this.quantity}}</td>
+        <td>{{this.this.product.price}}</td>
+        <td></td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>
+<div>
+    <h5>Tổng tiền đơn hàng này: {{this.totalPrice}} VNĐ</h5>
+    <button class="btn btn-primary">Thanh toán đơn hàng này</button>
+</div>
+{{else}}
+  <h3>Không có đơn hàng nào</h3>
+{{/each}}
+
