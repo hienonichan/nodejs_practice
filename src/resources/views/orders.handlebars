@@ -9,6 +9,7 @@
   <thead>
     <tr>
       <th scope="col">STT</th>
+      <th scope="col">Mã sản phẩm</th>
       <th scope="col">Name</th>
       <th scope="col">Description</th>
       <th scope="col">Số lượng</th>
@@ -20,6 +21,7 @@
     {{#each this.order.shoppingCarts}}
     <tr>
       <th scope="row">{{@index}}</th>
+        <td>{{this.this.product._id}}</td>
         <td>{{this.this.product.name}}</td>
         <td>{{this.product.description}}</td>
         <td>{{this.this.quantity}}</td>
@@ -32,7 +34,9 @@
 </div>
 <div>
     <h5>Tổng tiền đơn hàng này: {{this.totalPrice}} VNĐ</h5>
-    <button class="btn btn-primary">Thanh toán đơn hàng này</button>
+    <form action="/order/checkout/{{this.order._id}}" method="POST">
+        <button class="btn btn-primary">Thanh toán đơn hàng này</button>
+    </form>
 </div>
 {{else}}
   <h3>Không có đơn hàng nào</h3>

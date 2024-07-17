@@ -1,5 +1,6 @@
 const Course=require('../models/courseModel')
 const User=require('../models/userModel')
+const Order=require('../models/orderModel')
 
 class AdminController{
     //GET admin/course/create
@@ -67,11 +68,24 @@ class AdminController{
    //DELETE admin/course/:id/deleteForever
    async deleteForever(req,res,next){
       try {
+         // xóa khỏi mảng sở hữu
          let courses=req.user.courses
          for(let i=0;i<courses.length;i++){
             if(courses[i]._id.toString()===req.params.id){
                courses.splice(i,1)
             }
+         }
+         // xóa  objectId của product khỏi order
+         const user=await User.findById(req.user._id).populate({path:'orders'})
+         let orders=user.orders
+         for(let i=0;i<orders.length;i++){
+            let arrayProductOrder=orders[i].shoppingCarts
+            for(let k=0;k<arrayProductOrder.length;k++){
+               if(arrayProductOrder[i].product.toString()===req.params.id){
+                  arrayProductOrder=arrayProductOrder.filter(data=>data.product.toString()!==req.params.id)
+               }
+            }
+            await Order.findByIdAndUpdate(orders[i]._id,{shoppingCarts:arrayProductOrder})
          }
          // Xóa vĩnh viễn là xóa khỏi collection Course và xóa objectId khỏi User
          await User.findByIdAndUpdate(req.user._id,{courses})

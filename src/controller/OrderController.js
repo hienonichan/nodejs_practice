@@ -45,7 +45,23 @@ class OrderController{
             console.log(error)
             next(error)
         }
+    }    
+
+
+    //POST /order/checkout/:id
+    async checkout(req,res,next){
+      try {
+        // xóa document id khỏi collection Order
+        await Order.findByIdAndDelete(req.params.id)
+        // xóa id của order khỏi orders của user
+        let orders=req.user.orders
+        orders=orders.filter(id=>id.toString()!==req.params.id)
+        await User.findByIdAndUpdate(req.user._id,{orders:orders})
+        res.redirect('/order/get-orders')
+      } catch (error) {
+        console.log(error)
+        next(error)
+      }
     }
 }
-
 module.exports=new OrderController

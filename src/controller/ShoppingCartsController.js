@@ -2,7 +2,7 @@ const User=require('../models/userModel')
 const Course=require('../models/courseModel')
 
 class ShoppingCartsController{
-    //GET /shopping-casts
+    //GET /shopping-carts
    async show(req,res,next){
     try {
         // path là đường dẫn cần populate
@@ -15,7 +15,7 @@ class ShoppingCartsController{
     }
    }
 
-  //POST /shopping-casts/:id
+  //POST /shopping-carts/:id
    async push(req,res,next){
       try {
         let array=req.user.shoppingCarts
@@ -37,15 +37,13 @@ class ShoppingCartsController{
         else{
           array.push({product:req.params.id,quantity:1})
         }
-
-
         await User.findByIdAndUpdate(req.user._id,{shoppingCarts:array})
         res.redirect('/home')
       } catch (error) {
         next(error)
       }
    }
-   //PUT /shopping-casts/:id
+   //PUT /shopping-carts/:id
    async pop(req,res,next){
       try {
          let array=req.user.shoppingCarts
