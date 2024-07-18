@@ -26,6 +26,13 @@
       <li class="nav-item">
           <a href="/shopping-carts"><img id="shopping-carts" src="https://banner2.cleanpng.com/20180428/vxq/kisspng-shopping-cart-clip-art-5ae4e4a611d292.380342161524950182073.jpg" alt=""></a>
       </li>
+
+       <li>
+          <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm khóa học" name="name" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm</button>
+        </form>
+      </li>
     </ul>
       {{#if user}}
       <h2>Xin chào {{user.name}}. <a href="/auth/logout">Đăng xuất</a></h2> 

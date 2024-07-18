@@ -40,9 +40,12 @@ class AuthController{
             return
            }
            //create accessToken
+           // accessToken thường lưu trong req.headers 'authorization'
+           // nhưng ở đây mình lưu trong cookie cho dễ vì chưa dùng POSTMAN
            const accessToken=generateAccessToken(user)
            res.cookie('accessToken',accessToken,{httpOnly:true})
            //create refreshToken
+           // refreshToken nên lưu trong cookie 
            const refreshToken=generateRefreshToken(user)
            res.cookie('refreshToken',refreshToken,{httpOnly:true})
            refreshTokens.push(refreshToken)
