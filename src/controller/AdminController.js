@@ -80,8 +80,9 @@ class AdminController{
          let orders=user.orders
          for(let i=0;i<orders.length;i++){
             let arrayProductOrder=orders[i].shoppingCarts
+            console.log(arrayProductOrder)
             for(let k=0;k<arrayProductOrder.length;k++){
-               if(arrayProductOrder[i].product.toString()===req.params.id){
+               if(arrayProductOrder[k].product.toString()===req.params.id){
                   arrayProductOrder=arrayProductOrder.filter(data=>data.product.toString()!==req.params.id)
                }
             }

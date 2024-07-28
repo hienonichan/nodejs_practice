@@ -1,10 +1,11 @@
 const authController=require('../controller/AuthController')
 const express=require('express')
 const router=express.Router()
+const upload=require('../config/multer')
 router.get('/login',authController.loginGET)
 router.get('/register',authController.registerGET)
 router.post('/login',authController.loginPOST)
-router.post('/register',authController.registerPOST)
+router.post('/register',upload.single('image'),authController.registerPOST)
 router.get('/logout',authController.logoutGET)
 router.post('/token',authController.tokenPOST)
 module.exports=router

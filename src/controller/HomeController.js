@@ -2,15 +2,11 @@ const mongoose = require("mongoose");
 const Course = require("../models/courseModel");
 const User = require("../models/userModel");
 class HomeController {
-  // GET /home
+  // GET /home  //get all courses from all admins
   async show(req, res, next) {
     try {
-        let searchName=req.query.name
-      const user = await User.findById(req.user._id).populate({
-        path: "courses",
-        match: { deleted: false },
-      });
-      const course = user.courses;
+      let searchName=req.query.name
+      const course = await Course.find({})
       let courseObject = course.map((course) => course.toObject());
       if(searchName){
         // filter course by searching name

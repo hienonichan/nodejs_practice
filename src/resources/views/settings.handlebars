@@ -1,0 +1,92 @@
+
+<div class="container mt-5">
+    <h1 class="mb-4">Settings Page</h1>
+    <ul class="list-group">
+      <li class="list-group-item ">
+        Name:
+        <span>{{user.name}}</span>
+      </li>
+      <li class="list-group-item">
+        Username:
+        <span>{{user.username}}</span>
+       
+      </li>
+      <li class="list-group-item">
+        Password:
+        <span>{{user.password}}</span>
+         <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#changePasswordModal">
+            Đổi mật khẩu
+            </button>
+      </li>
+      <li class="list-group-item">
+        Ảnh đại diện: 
+        <a href="/img/{{user.username}}.jpg">
+          <img id="userImage" src="/img/{{user.username}}.jpg" alt="error" class="img-fluid rounded-circle" style="width: 50px; height: 50px;">
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+
+  <!-- Modal -->
+<div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="changePasswordModalLabel">Đổi mật khẩu</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="changePasswordForm">
+          <div class="form-group">
+            <label for="newPassword">Mật khẩu mới</label>
+            <input type="password" class="form-control" id="newPassword" placeholder="Nhập mật khẩu mới" required>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+        <button type="button" class="btn btn-primary" onclick="submitNewPassword()">Đổi mật khẩu</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function submitNewPassword() {
+    var newPassword = document.getElementById('newPassword').value;
+    if (newPassword) {
+      // Xử lý logic đổi mật khẩu ở đây
+      console.log('Mật khẩu mới:', newPassword);
+      
+      // Ví dụ gửi mật khẩu mới đến server qua API
+       fetch('/settings/change-password', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ password: newPassword })
+         }).then(response => {
+        if (response.ok) {
+         alert('Đổi mật khẩu thành công!');
+          $('#changePasswordModal').modal('hide');
+          //redirect when success
+           window.location.href = '/home';
+        } else {
+          alert('Đổi mật khẩu thất bại!');
+        }
+         }).catch(error => {
+         console.error('Error:', error);
+         });
+
+      // Đóng modal sau khi đổi mật khẩu thành công
+      $('#changePasswordModal').modal('hide');
+    } else {
+      alert('Vui lòng nhập mật khẩu mới.');
+    }
+  }
+</script>

@@ -6,6 +6,7 @@ const authRouter=require('./auth')
 const cartsRouter=require('./shopping-carts')
 const adminRouter=require('./admin')
 const orderRouter=require('./order')
+const settingsRouter=require('./settings')
 
 //middleware
 
@@ -20,6 +21,7 @@ function route(app){
     app.use(checkToken)
     app.use(getUser)
     app.use('/course',courseRouter)
+    app.use('/settings',settingsRouter)
     app.use('/shopping-carts',cartsRouter)
     app.use('/home',homeRouter)
     app.use('/admin',checkAdmin,adminRouter)

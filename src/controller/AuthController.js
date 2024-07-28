@@ -88,6 +88,7 @@ class AuthController{
         res.cookie('refreshToken','',{maxAge:0})
         res.redirect('/auth/login')
     }
+
    //route refresh token
     //POST /auth/token
     tokenPOST(req,res,next){

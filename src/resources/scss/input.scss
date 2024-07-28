@@ -22,3 +22,10 @@
     height:40px;
 }
 
+#userImage {
+    width: 40px; /* Đặt chiều rộng của ảnh */
+    height: 40px; /* Đặt chiều cao của ảnh */
+    border-radius: 50%; /* Bo tròn ảnh */
+    object-fit: cover; /* Đảm bảo ảnh không bị biến dạng */
+  }
+

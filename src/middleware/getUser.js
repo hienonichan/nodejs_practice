@@ -10,7 +10,7 @@ async function getUser(req,res,next){
     let user=await User.findOne({username:payload.username})
     user=user.toObject()
     //Lưu locals toàn cục để render trong template engine
-    res.locals.user={name:user.name}
+    res.locals.user={name:user.name,username:user.username}
     // middleware truyền user vào req để function handler cuối xử lí
     req.user={_id:user._id,admin:user.admin,courses:user.courses,shoppingCarts:user.shoppingCarts,orders:user.orders}
     next()

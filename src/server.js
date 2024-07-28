@@ -10,7 +10,6 @@ const dotenv=require('dotenv')
 const jwt=require('jsonwebtoken')
 
 
-
 //config dotenv
 dotenv.config()
 const PORT=process.env.port||3000
