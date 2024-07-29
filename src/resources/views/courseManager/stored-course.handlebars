@@ -11,6 +11,7 @@
       <th scope="col">STT</th>
       <th scope="col">Name</th>
       <th scope="col">Description</th>
+      <th scope="col">imageUrl</th>
       <th scope="col">videoID</th>
       <th scope="col">Giá tiền:(Đơn vị VNĐ)</th>
       <th scope="col"></th>
@@ -23,6 +24,7 @@
       <th scope="row">{{@index}}</th>
       <td>{{this.name}}</td>
       <td>{{this.description}}</td>
+       <td>{{this.image}}</td>
       <td>{{this.videoId}}</td>
        <td>{{this.price}} VNĐ</td>
       <td><a href="/admin/course/{{this._id}}/edit" class="btn btn-primary">Sửa</a></td>

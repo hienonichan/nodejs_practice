@@ -1,26 +1,36 @@
-<h1>Đăng khóa học</h1>
+<h1>Đăng sản phẩm</h1>
 
 <div>
     <form action="/admin/course/create" method="POST">
         <div class="form-group">
-            <label for="name">Tên khóa học</label>
-            <input type="text" id="name" name="name" class="form-control" placeholder="Tên khóa học">
+            <label for="name">Tên sản phẩm</label>
+            <input type="text" id="name" name="name" class="form-control" placeholder="Tên sản phẩm">
         </div>
 
         <div class="form-group">
             <label for="description">Mô tả</label>
-            <input type="text" id="description" name="description" class="form-control" placeholder="Mô tả chi tiết về khóa học">
+            <input type="text" id="description" name="description" class="form-control" placeholder="Mô tả chi tiết về sản phẩm">
+        </div>
+
+           <div class="form-group">
+            <label for="image">Image sản phẩm</label>
+            <input type="text" id="image" name="image" class="form-control" placeholder="Image sản phẩm">
         </div>
 
         <div class="form-group">
             <label for="videoId">Đường dẫn video</label>
-            <input type="text" id="videoId" name="videoId" class="form-control" placeholder="Đường dẫn video khóa học">
+            <input type="text" id="videoId" name="videoId" class="form-control" placeholder="Đường dẫn video sản phẩm">
         </div>
 
          <div class="form-group">
-            <label for="price">Giá tiền khóa học</label>
-            <input type="number" id="price" name="price" class="form-control" placeholder="Giá tiền khóa học">
+            <label for="price">Giá tiền sản phẩm</label>
+            <input type="number" id="price" name="price" class="form-control" placeholder="Giá tiền sản phẩm">
         </div>
-        <button type="submit" class="btn btn-primary">Đăng khóa học</button>
+
+        <div class="form-group">
+            <label for="about">hashTag (cách nhau dấu "/")</label>
+            <input type="text" id="about" name="about" class="form-control" placeholder="hashTag sản phẩm">
+        </div>
+        <button type="submit" class="btn btn-primary">Đăng sản phẩm lên</button>
     </form>
 </div>

@@ -31,3 +31,9 @@
   /* Bo tròn ảnh */
   object-fit: cover;
   /* Đảm bảo ảnh không bị biến dạng */ }
+
+#filterImage {
+  width: 20px;
+  /* Đặt chiều rộng của ảnh */
+  height: 20px;
+  /* Đặt chiều cao của ảnh */ }

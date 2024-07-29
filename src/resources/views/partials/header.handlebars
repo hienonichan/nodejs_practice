@@ -15,9 +15,9 @@
            Menu
         </a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="/admin/course/create">Đăng khóa học</a>
+          <a class="dropdown-item" href="/admin/course/create">Đăng sản phẩm</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/admin/manager">Quản lý khóa học</a>
+          <a class="dropdown-item" href="/admin/manager">Quản lý sản phẩm</a>
           <a class="dropdown-item" href="#">Quản lý bài viết</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/order/get-orders">Các đơn đặt hàng</a>
@@ -29,9 +29,41 @@
 
        <li>
           <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm khóa học" name="name" aria-label="Search">
+          <input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm sản phẩm" name="name" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm</button>
         </form>
+      </li>
+     <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+           <img src="https://cdn-icons-png.flaticon.com/512/107/107799.png" id="filterImage" alt="error">
+        </a>
+        <div class="dropdown-menu">
+          <form action="/home" method="GET">
+           <a class="dropdown-item" >Theo sản phẩm</a>
+          <div class="dropdown-divider"></div>
+           <input type="checkbox" id="about" name="about" value="student">
+            <label for="about">Học sinh</label><br>
+             <input type="checkbox" id="about" name="about" value="electricity">
+            <label for="about">Đồ điện tử</label><br>
+             <input type="checkbox" id="about" name="about" value="skincare">
+            <label for="about">Đồ chăm sóc da</label><br>
+            <input type="checkbox" id="about" name="about" value="house">
+            <label for="about">Đồ gia dụng</label><br>
+            <input type="checkbox" id="about" name="about" value="work">
+            <label for="about">Đồ công sở</label><br>
+            <input type="checkbox" id="about" name="about" value="clothes">
+            <label for="about">Quần áo</label><br>
+             <a class="dropdown-item" >Theo giá tiền (VNĐ)</a>
+            <div class="dropdown-divider"></div>
+             <input type="radio" id="price" name="price" value="<200">
+            <label for="price">Dưới 200k</label><br>
+              <input type="radio" id="price" name="price" value="200<<500">
+            <label for="price">từ 200k đến dưới 500k</label><br>
+              <input type="radio" id="price" name="price" value=">500">
+            <label for="price">trên 500k</label><br>
+            <button type="submit" class="btn btn-primary">Lọc</button>
+          </form>
+        </div>
       </li>
        </ul>
       {{#if user}}
@@ -51,6 +83,5 @@
       {{else}}
        <a href="/auth/login"><h1>Đăng nhập</h1></a>
       {{/if}}
-      
   </div>
 </nav>

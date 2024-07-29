@@ -32,7 +32,7 @@ const User=require('../models/userModel')
                             req.cookies.refreshToken=result.refreshToken
                             next()
                         } catch (error) {
-                            console.log('accessToken is invalid but cant refresh' ,error)
+                            console.log('accessToken is invalid but cant refresh')
                             return res.redirect('/auth/login')
                         }
                }

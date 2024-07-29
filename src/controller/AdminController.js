@@ -17,7 +17,6 @@ class AdminController{
    async createStore(req,res,next){
     try {
        const courseObject=new Course(req.body)
-       courseObject.image=`https://i.ytimg.com/vi/${req.body.videoId}/maxresdefault.jpg`
        await courseObject.save()
        req.user.courses.push(courseObject._id)
        await User.findByIdAndUpdate(req.user._id,{courses:req.user.courses})
